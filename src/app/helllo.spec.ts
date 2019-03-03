@@ -1,28 +1,25 @@
-  describe('Hello Test', () => {
-    let expectedTrue = '';
-    let expectedFalse = '';
-    let expression = null;
+describe('Application Test', () => {
+    let match = '';
+    let nonmatch = '';
+    let matchex = new RegExp(/^Hello/);
+    beforeEach(() => {
+        match = "HelloWolrd";
+        nonmatch = "Hakunamata";
 
-    beforeEach(()=>{
-     expectedTrue = 'HelloTest';
-     expectedFalse= 'Hakunamatata';
-     expression = new RegExp(/^Hello/);
     });
 
-    afterAll(()=>{
-        expectedTrue = '';
-        expectedFalse= '';
-        expression = null;
+    afterEach(() => {
+        match = '';
+        nonmatch = '';
     })
 
-  it('should Test for matching values', () => {
-    expect("HelloTest").toBe(expectedTrue);
-  });
-  it('should test for not matching values', () => {
-    expect("HelloTest").not.toBe(expectedFalse);
-  });
-  it('should match for start', () => {
-    expect("HelloTest").toMatch(expression);
-  });
-
+    it('Tests for mathcing criteria', () => {
+        expect('HelloWolrd').toBe(match);
+    })
+    it('Tests for Not mathcing criteria', () => {
+        expect('HelloWolrd').not.toBe(nonmatch);
+    })
+    it('Mtahc the first expression', () => {
+        expect('Helloisthisgauirav').toMatch(matchex);
+    })
 });
